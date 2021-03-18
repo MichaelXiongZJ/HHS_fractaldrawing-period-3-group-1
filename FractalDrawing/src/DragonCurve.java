@@ -18,7 +18,7 @@ public class DragonCurve extends FractalDrawing{
 		else {
 			drawDragonCurve(marker,level-1,length*r,angle+45,x,y);
 			drawDragonCurve(marker,level-1,length*r,angle-45
-					,x+length*r*Math.cos(Math.toRadians(angle)),y-length*r*Math.sin(Math.toRadians(angle)));
+					,x+length*r*Math.cos(Math.toRadians(angle+45)),y-length*r*Math.sin(Math.toRadians(angle+45)));
 		}
 	}
 
