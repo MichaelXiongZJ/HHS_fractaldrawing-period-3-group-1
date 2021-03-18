@@ -11,7 +11,10 @@ public class DragonCurve extends FractalDrawing{
 	}
 	
 	private void drawDragonCurve(PApplet marker, int level, double length, double angle, double x, double y) {
-		
+		if(level<1) {
+			marker.line((float)(x), (float)y, 
+    				(float)(x+length*Math.cos(Math.toRadians(angle))), (float)(y-length*Math.sin(Math.toRadians(angle))));
+		}
 	}
 
 }
