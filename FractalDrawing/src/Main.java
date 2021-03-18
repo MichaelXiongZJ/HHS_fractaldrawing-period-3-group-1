@@ -11,7 +11,7 @@ public class Main {
 	
 	public static void main(String args[]) {
 		// Once you have a fractal class, remove my "SampleFractals" and add your fractal object to this list:
-		FractalDrawing[] choices = { new SampleFractal (20,15), new DragonCurve (2,30), new BoxFractal (4,400) }; 
+		FractalDrawing[] choices = { new SampleFractal (20,15), new DragonCurve (2,30), new SampleFractal (4,400) }; 
 		
 		
 		
