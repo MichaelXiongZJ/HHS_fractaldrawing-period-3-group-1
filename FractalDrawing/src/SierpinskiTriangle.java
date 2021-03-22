@@ -13,6 +13,7 @@ public class SierpinskiTriangle extends FractalDrawing{
 
 	public void draw(PApplet marker) 
 	{
+		marker.fill(252, 15, 192);
 		drawSierpinskiTriangle(marker, pointA, pointB, pointC, level);
 	}
 
@@ -26,17 +27,17 @@ public class SierpinskiTriangle extends FractalDrawing{
 		
 			Coordinates pointAB = getMidPoint(pointA,pointB);
 			Coordinates pointBC = getMidPoint(pointB,pointC);
-			Coordinates pointCA = getMidPoint(pointC,pointA);
+			Coordinates pointAC = getMidPoint(pointA,pointC);
 			
-			drawSierpinskiTriangle(marker, pointA, pointAB, pointCA, level-1);
+			drawSierpinskiTriangle(marker, pointA, pointAB, pointAC, level-1);
 			drawSierpinskiTriangle(marker, pointAB, pointB, pointBC, level-1);
-			drawSierpinskiTriangle(marker, pointCA, pointBC, pointC, level-1);
+			drawSierpinskiTriangle(marker, pointAC, pointBC, pointC, level-1);
 	}
 	
 	private Coordinates getMidPoint(Coordinates pointA, Coordinates pointB)
 	{
 		float midX = (pointA.getX() + pointB.getX()) / 2;
-		float midY = (pointA.getY()) + pointB.getY()/2;
+		float midY = (pointA.getY() + pointB.getY())/2;
 		return new Coordinates(midX, midY);
 	}
 }
