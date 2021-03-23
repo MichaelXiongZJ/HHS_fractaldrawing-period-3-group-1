@@ -13,7 +13,7 @@ public class SierpinskiTriangle extends FractalDrawing{
 
 	public void draw(PApplet marker) 
 	{
-		marker.fill(252, 15, 192);
+		
 		drawSierpinskiTriangle(marker, pointA, pointB, pointC, level);
 	}
 
@@ -21,6 +21,8 @@ public class SierpinskiTriangle extends FractalDrawing{
 	{
 		if(level < 1)
 		{
+			marker.fill((float)Math.random() * 255,(float)Math.random() * 255, (float)Math.random() * 255);
+			marker.stroke((float)Math.random() * 255,(float)Math.random() * 255, (float)Math.random() * 255);
 			marker.triangle(pointA.getX(), pointA.getY(), pointB.getX(), pointB.getY(), pointC.getX(), pointC.getY());
 			return;
 		}
