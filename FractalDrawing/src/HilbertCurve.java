@@ -17,25 +17,34 @@ public class HilbertCurve extends FractalDrawing{
 	}
 	
 	private void drawHilbertCurve(PApplet marker, double x, double y, double length, int level, double angle) {
-	//	double x2 = x;
-	//	double y2 = y + length;
+		if(angle >= 360) {
+			angle -= 360;
+		}
 		if(level < 1) {
 			drawCup(marker, x, y, length, level, angle);
 		}else {
-			double tempA = angle;
-			if (tempA >= 360) {
-				tempA = tempA - 360;
+			length = length*3/2;
+			if(angle == 0) {
+				drawHilbertCurve(marker, x , y , length/3, level - 1, angle + 90);
+				drawHilbertCurve(marker, x, y+2*length/3, length/3, level - 1, angle);
+				drawHilbertCurve(marker, x+2*length/3, y+2*length/3 , length/3, level - 1, angle);
+				drawHilbertCurve(marker, x+2*length/3 , y, length/3, level - 1, angle + 270);
+			}else if(angle == 90) {
+				drawHilbertCurve(marker, x , y , length/3, level - 1, angle - 90);
+				drawHilbertCurve(marker, x+2*length/3, y, length/3, level - 1, angle);
+				drawHilbertCurve(marker, x+2*length/3, y+2*length/3 , length/3, level - 1, angle);
+				drawHilbertCurve(marker, x, y+2*length/3, length/3, level - 1, angle + 90);
+			}else if(angle == 180) {
+				drawHilbertCurve(marker, x , y , length/3, level - 1, angle);
+				drawHilbertCurve(marker, x+2*length/3, y, length/3, level - 1, angle);
+				drawHilbertCurve(marker, x, y+2*length/3 , length/3, level - 1, angle - 90);
+				drawHilbertCurve(marker, x+2*length/3, y+2*length/3, length/3, level - 1, angle + 90);
+			}else if(angle == 270) {
+				drawHilbertCurve(marker, x+2*length/3 , y , length/3, level - 1, angle + 90);
+				drawHilbertCurve(marker, x, y, length/3, level - 1, angle-180);
+				drawHilbertCurve(marker, x, y+2*length/3, length/3, level - 1, angle-180);
+				drawHilbertCurve(marker, x+2*length/3, y+2*length/3, length/3, level - 1, angle - 90);
 			}
-			drawHilbertCurve(marker, x, y+2*length/3, length/3, level - 1, tempA);
-			drawHilbertCurve(marker, x+2*length/3, y+2*length/3 , length/3, level - 1, tempA);
-			if (tempA + 90 >= 360) {
-				tempA = tempA - 360;
-			}
-			drawHilbertCurve(marker, x , y , length/3, level - 1, tempA + 90);
-			if (tempA + 270 >= 360) {
-				tempA = tempA - 360;
-			}
-			drawHilbertCurve(marker, x+2*length/3 , y, length/3, level - 1, tempA + 270);
 		}
 	}
 	
