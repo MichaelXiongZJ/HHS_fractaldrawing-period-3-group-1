@@ -7,8 +7,8 @@ public class HilbertCurve extends FractalDrawing{
 	
 	public HilbertCurve(int level, double length) {
 		super(level, length);
-		xLoc = 100;
-		yLoc = 100;
+		xLoc = 200;
+		yLoc = 200;
 	}
 
 	
@@ -24,11 +24,13 @@ public class HilbertCurve extends FractalDrawing{
 			drawCup(marker, x, y, length, level, angle);
 		}else {
 			length = length*3/2;
+			x = x-length/6;
+			y = y-length/6;
 			if(angle == 0) {
-				drawHilbertCurve(marker, x , y , length/3, level - 1, angle + 90);
+				drawHilbertCurve(marker, x, y, length/3, level - 1, angle + 90);
 				drawHilbertCurve(marker, x, y+2*length/3, length/3, level - 1, angle);
-				drawHilbertCurve(marker, x+2*length/3, y+2*length/3 , length/3, level - 1, angle);
-				drawHilbertCurve(marker, x+2*length/3 , y, length/3, level - 1, angle + 270);
+				drawHilbertCurve(marker, x+2*length/3, y+2*length/3, length/3, level - 1, angle);
+				drawHilbertCurve(marker, x+2*length/3, y, length/3, level - 1, angle + 270);
 				marker.line((float)x, (float)(y+length/3), (float)x, (float)(y+2*length/3));
 				marker.line((float)(x+length/3), (float)(y+2*length/3), (float)(x+2*length/3), (float)(y+2*length/3));
 				marker.line((float)(x+length), (float)(y+length/3), (float)(x+length), (float)(y+2*length/3));
@@ -61,7 +63,7 @@ public class HilbertCurve extends FractalDrawing{
 	}
 	
 	private void drawCup(PApplet marker, double x, double y, double length, int level, double angle){
-		if(angle == 0 || angle == 360) {
+		if(angle == 0) {
 			marker.line((float)x, (float)y, (float)x, (float)(y+length));
 			marker.line((float)x, (float)(y+length), (float)(x+length), (float)(y+length));
 			marker.line((float)(x+length), (float)(y+length), (float)(x+length), (float)y);
