@@ -26,12 +26,12 @@ public class HilbertCurve extends FractalDrawing{
 		}
 		if(level < 1) {
 			drawCup(marker, x, y, length, level, angle);
+			color += 1;
 		}else {
 			length = length*3/2;
 			x = x-length/6;
 			y = y-length/6;
 			marker.stroke(color, color/100, color/100);;
-			color += 1;
 			if(angle == 0) {
 				drawHilbertCurve(marker, x, y, length/3, level - 1, angle + 90);
 				drawHilbertCurve(marker, x, y+2*length/3, length/3, level - 1, angle);
