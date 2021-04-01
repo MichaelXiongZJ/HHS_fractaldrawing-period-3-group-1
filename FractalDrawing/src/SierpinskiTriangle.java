@@ -25,9 +25,6 @@ public class SierpinskiTriangle extends FractalDrawing {
 	{
 		if(level < 1)
 		{
-//			marker.fill((float)Math.random() * 255,(float)Math.random() * 255, (float)Math.random() * 255);
-			marker.stroke((float)Math.random() * 255,(float)Math.random() * 255, (float)Math.random() * 255);
-//			marker.triangle(pointA.getX(), pointA.getY(), pointB.getX(), pointB.getY(), pointC.getX(), pointC.getY());
 			Line[] triangle = new Line[3];
 			triangle[0] = new Line (pointA.getX(), pointA.getY(), -60, length, true);
 			triangle[1] = new Line(triangle[0].getX2(), triangle[0].getY2(), 60, length, true);
@@ -35,7 +32,6 @@ public class SierpinskiTriangle extends FractalDrawing {
 			
 			for(Line l : triangle)
 			{
-				l.setStrokeColor(new Color(30,100, 200));
 				l.draw(marker);
 			}
 			return;
